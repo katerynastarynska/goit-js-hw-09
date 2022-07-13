@@ -9,6 +9,7 @@ console.log(bodyEl);
 // startBtn.addEventListener("click", getRandomHexColor);
 startBtn.addEventListener("click", () => {
     timerId = setInterval(getRandomHexColor, 1000);
+
   });
 
 
