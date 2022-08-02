@@ -44,6 +44,7 @@ startBtn.disabled = true;
 
 function onClose(selectedDates) {
     const targetDate = selectedDates[0].getTime();
+    
     deltaTime = targetDate - currentDate.getTime();
 
     if (deltaTime < 0) {
@@ -58,11 +59,15 @@ function onClose(selectedDates) {
 
     } else if (deltaTime > 0) {
         startBtn.disabled = false;
-      
+        let timerId = 0;
         startBtn.addEventListener('click', () => {
-            setInterval(() => {
+            timerId = setInterval(() => {
                 const timeDiff = targetDate - new Date();
+                console.log(timeDiff)
                 interfaceSetUp();
+                    if (timeDiff < 1000) {
+                    clearInterval(timerId);
+                    }
                 const time = convertMs(timeDiff);
                 updateTimerInterface(time);
             }, 1000);

@@ -17,6 +17,7 @@ function onSubmitForm(event) {
   }
     createPromise(i, step);
   }
+  formEl.reset();
 }
 
 function createPromise(position, delay) {
